@@ -8,6 +8,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { MatDialogModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material';
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 
 import 'hammerjs';
@@ -24,6 +33,7 @@ import { DatePipe } from '@angular/common';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -37,23 +47,36 @@ import { LeaderService } from './services/leader.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    LoginComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
     FlexLayoutModule,
-    AppRoutingModule
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     DatePipe,
     DishService,
     PromotionService,
     LeaderService
+  ],
+  entryComponents:[
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
