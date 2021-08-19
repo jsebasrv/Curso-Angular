@@ -56,7 +56,7 @@
 
   <div fxFlex >
     <h2>Corporate Leadership</h2>
-    <mat-list *ngIf="leaders">
+    <mat-list *ngIf="leaders" [@expand]>
       <mat-list-item *ngFor="let leader of leaders">
         <img height="50px" width="50px" src={{leader.image}} alt={{leader.name}} style="border-radius:150px;">
         <span>{{leader.name}}</span><br>

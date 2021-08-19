@@ -1,11 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
+import { flyInOut } from '../animations/app.animations';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+  },
+  animations: [
+    flyInOut()
+  ]
 })
 export class ContactComponent implements OnInit {
 
@@ -66,15 +74,15 @@ export class ContactComponent implements OnInit {
   onValueChanged(data?: any) {
 
     if (!this.feedbackForm) { return; }
-    const form= this.feedbackForm;
-    for(const field in this.formErrors){
-      if(this.formErrors.hasOwnProperty(field)){
+    const form = this.feedbackForm;
+    for (const field in this.formErrors) {
+      if (this.formErrors.hasOwnProperty(field)) {
         this.formErrors[field] = '';
         const control = form.get(field);
-        if( control && control.dirty && !control.valid){
+        if (control && control.dirty && !control.valid) {
           const messages = this.validationMessages[field];
-          for(const key in control.errors){
-            if(control.errors.hasOwnProperty(key)){
+          for (const key in control.errors) {
+            if (control.errors.hasOwnProperty(key)) {
               this.formErrors[field] += messages[key] + ' '
             }
           }
